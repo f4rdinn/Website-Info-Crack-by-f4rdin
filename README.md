@@ -1,46 +1,97 @@
-Website Info Crack by f4rdin
-সংস্করণ: 1.0.0
-লক্ষ্য: টার্মিনাল থেকে দ্রুত কোনো ওয়েবসাইটের IP (A/AAAA), WHOIS তথ্য, HTTP/HTTPS স্ট্যাটাস ও প্রাথমিক রেসপন্স-টাইম দেখা।
-গুরুত্বপূর্ণ: স্ক্রিপ্টটি কোনো SSH/পাসওয়ার্ড/কি ব্যবহার করে না — শুধুমাত্র লোকাল কমান্ড (dig, whois, curl, bc) চালায়।
-বৈশিষ্ট্যসমূহ
-IPv4 ও IPv6 (A/AAAA) লুকআপ (dig)
-পুরো WHOIS ও সংক্ষিপ্ত WHOIS সারাংশ (whois)
-HTTP/HTTPS আপটাইম চেক (HTTP স্ট্যাটাস কোড) (curl)
-মোট রেসপন্স-টাইম পরিমাপ (curl, bc — ঐচ্ছিক)
-ইন্টারঅ্যাকটিভ মেনু মোড এবং নন-ইন্টারঅ্যাকটিভ মোড (ডোমেইন আরগুমেন্ট হিসেবে পাস করা যায়)
-রঙিন টার্মিনাল আউটপুট (পাঠযোগ্যতার জন্য)
-প্রয়োজনীয়তা (Dependencies)
-bash
-dig (প্যাকেজ: dnsutils অর্থাৎ Debian/Ubuntu-তে dnsutils)
-whois
-curl
-bc (ঐচ্ছিক — সংখ্যা তুলনার জন্য)
-Debian/Ubuntu-এ ইনস্টল:
-sudo apt update
-sudo apt install -y dnsutils whois curl bc
-দ্রুত সেটআপ (1 মিনিট)
-রেপো ক্লোন বা নতুন রিপো তৈরি করুন।
-স্ক্রিপ্ট ফাইল (উদাহরণ: website_info.sh) রিপো-তে যোগ করুন।
-executable করতে:
-chmod +x website_info.sh
-ব্যবহার (Usage)
-ইন্টারঅ্যাকটিভ মোড
-কোনো আর্গুমেন্ট বাদ দিলে মেনু ওপেন হবে:
-./website_info.sh
-মেনু থেকে ডোমেইন দিন এবং অপশন নির্বাচন করুন — IP, WHOIS, Uptime, Speed অথবা সবগুলো চালান।
-নন-ইন্টারঅ্যাকটিভ (একসাথে সব চেক)
-এক লাইনেই সব চেক চালাতে:
-./website_info.sh example.com
-আউটপুট ফাইল হিসাবে সেভ করা
-টার্মিনাল আউটপুট একই সঙ্গে ফাইলেও রাখতে চাইলে:
-./website_info.sh example.com | tee website_info_example.com.txt
-আউটপুট উদাহরণ
-IPv4 Addresses: 1.2.3.4
-IPv6 Addresses: 2001:db8::1
-HTTP Status Code: 200 — Website is UP and running.
-Total Response Time: 0.34s — Performance: Excellent
-(WHOIS আউটপুট সরাসরি WHOIS সার্ভার থেকে আসে; তাই দেখা যাবে রেজিস্ট্রেশন ডিটেইলস।)
-নিরাপত্তা ও গোপনীয়তা (Security & Privacy)
-স্ক্রিপ্টটি কেবল রিড-ওনলি কুয়েরি করে (DNS, WHOIS, HTTP)।
-কোনো ধরনের SSH/লগইন/পাসওয়ার্ড/কি অনুরোধ করে না।
-WHOIS আউটপুটে কখনও ব্যক্তিগত কন্ট্যাক্ট ডিটেইল থাকতে পারে — লক্ষ্য রাখুন।
+# 🌐 Website Info Crack by f4rdin
+
+A powerful and user-friendly **Bash tool** that allows you to gather key information about any website — including IP lookup, WHOIS data, uptime status, and response speed. Designed for Linux terminal users with a clean and colorful interface.
+
+---
+
+## 🚀 Features
+
+* 🔍 **IP Lookup:** Fetch both IPv4 and IPv6 addresses of any website.
+* 📜 **WHOIS Lookup:** Get complete domain registration information.
+* 🚦 **Uptime Check:** Verify if the website is up or down via HTTP status codes.
+* ⚡ **Speed Test:** Measure total response time and performance level.
+* 🧠 **Smart Detection:** Automatically detects and cleans malformed URLs.
+* 🎨 **Interactive Menu:** Navigate easily through options with a clean UI.
+
+---
+
+## ⚙️ Requirements
+
+Make sure the following dependencies are installed:
+
+```bash
+sudo apt install curl dig whois bc
+```
+
+All commands used in this script are lightweight and available in most Linux systems by default.
+
+---
+
+## 🧩 Installation
+
+Clone the repository and make the script executable:
+
+```bash
+git clone https://github.com/f4rdinn/Website-Info-Crack-by-f4rdin.git
+cd Website-Info-Crack-by-f4rdin
+chmod +x website_info_crack_by_f4rdin.sh
+```
+
+---
+
+## ▶️ Usage
+
+### **Interactive Mode:**
+
+Run the script without arguments to enter the interactive menu.
+
+```bash
+./website_info_crack_by_f4rdin.sh
+```
+
+### **Quick Command Mode:**
+
+Run directly with a domain to perform all checks automatically.
+
+```bash
+./website_info_crack_by_f4rdin.sh example.com
+```
+
+---
+
+## 🧰 Example Output
+
+```
+======================================================
+         Website Info Crack (v1.0) by f4rdin
+======================================================
+[🔍 IP Lookup for: example.com]
+IPv4: 93.184.216.34
+
+[🚦 Uptime Check for: example.com]
+HTTP Status Code: 200 - Website is UP and running perfectly.
+
+[⚡ Speed Test for: example.com]
+Total Response Time: 0.214s
+Performance: Excellent
+```
+
+---
+
+## 🧑‍💻 Author
+
+**Developed by:** [f4rdin](https://github.com/f4rdinn)
+
+If you like this project, ⭐ the repo and share it with others!
+
+---
+
+## 🪪 License
+
+This project is licensed under the **MIT License** — you can freely use, modify, and distribute it.
+
+---
+
+### 💡 Tip
+
+Use this tool responsibly for educational and diagnostic purposes only. Unauthorized or malicious usage is strictly discouraged.
